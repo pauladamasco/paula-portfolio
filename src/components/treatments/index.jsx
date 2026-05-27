@@ -12,7 +12,7 @@ const photos = [
     { src: Checkup,        alt: 'Check Up',                       title: 'Check Up',                       desc: 'Avaliação preventiva completa do estado de saúde.' },
     { src: Diagnostico,    alt: 'Diagnósticos Difíceis',          title: 'Diagnósticos Difíceis',          desc: 'Investigação detalhada de quadros clínicos complexos.' },
     { src: Exame,          alt: 'Exames de Rastreio',             title: 'Exames de Rastreio',             desc: 'Detecção precoce de doenças através de exames direcionados.' },
-    { src: SaudeMulher,    alt: 'Saúde da Mulher',                title: 'Saúde da Mulher',                desc: 'Imunização, menopauza, screening para câncer de mama e colo do útero, prevenção e tratamento de osteoporose' },
+    { src: SaudeMulher,    alt: 'Saúde da Mulher',                title: 'Saúde da Mulher',                desc: 'Imunização, menopausa, screening para câncer de mama e colo do útero, prevenção e tratamento de osteoporose' },
 ]
 
 const Treatments = () => {
