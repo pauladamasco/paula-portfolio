@@ -1,0 +1,145 @@
+.contact-page {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 60px 60px;
+    box-sizing: border-box;
+
+    .contact-title {
+        font-size: 53px;
+        font-family: 'Marcellus';
+        color: #545454;
+        font-weight: 400;
+        margin: 0 0 40px 0;
+        width: 100%;
+    }
+}
+
+.map-wrap {
+    width: calc(100% - 120px);
+    height: calc(100vh - 240px);
+    position: relative;
+    background: rgba(8, 253, 216, 0.1);
+    margin: 0 60px;
+
+    .leaflet-container {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.info-map {
+    position: absolute;
+    background-color: #000;
+    top: 50px;
+    right: 0;
+    z-index: 999;
+    width: 267px;
+    padding: 20px;
+    color: #fff;
+    font-family: 'Helvetica';
+    font-size: 17px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeIn 1s 1.5s forwards;
+}
+
+.address-info {
+    margin-bottom: 16px;
+
+    .address-text {
+        color: #545454;
+        font-size: 16px;
+        font-family: 'DMSerifDisplay';
+        letter-spacing: 2px;
+    }
+}
+
+// ── Desktop médio ──
+@media (max-width: 1200px) {
+    .contact-page {
+        padding: 60px 30px;
+        .contact-title { font-size: 42px; }
+    }
+
+    .map-wrap {
+        width: calc(100% - 60px);
+        height: 420px;
+        margin: 0 30px;
+    }
+}
+
+// ── Tablet ──
+@media (max-width: 1024px) {
+    .contact-page {
+        padding: 48px 24px;
+        .contact-title { font-size: 38px; }
+    }
+
+    .map-wrap {
+        width: calc(100% - 48px);
+        height: 380px;
+        margin: 0 24px;
+    }
+
+    .info-map {
+        width: 220px;
+        font-size: 15px;
+        padding: 16px;
+    }
+}
+
+// ── Mobile ──
+@media (max-width: 768px) {
+    .contact-page {
+        padding: 36px 16px;
+
+        .contact-title {
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+    }
+
+    .map-wrap {
+        width: 100%;
+        height: 300px;
+        margin: 0;
+        // Mapa não interfere no scroll — interação desabilitada via JSX
+    }
+
+    .info-map {
+        position: relative;     // ← sai do mapa, fica abaixo
+        top: auto;
+        right: auto;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 14px;
+        padding: 16px;
+        margin-top: 12px;
+        opacity: 1;
+        animation: none;
+    }
+
+    .address-info .address-text {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+}
+
+// ── Mobile pequeno ──
+@media (max-width: 480px) {
+    .contact-page {
+        padding: 24px 12px;
+        .contact-title { font-size: 26px; }
+    }
+
+    .map-wrap { height: 240px; }
+
+    .info-map {
+        font-size: 13px;
+        padding: 12px;
+    }
+}

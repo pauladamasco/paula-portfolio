@@ -1,0 +1,73 @@
+$primary-color: #112e8b;
+
+@import 'animate.css';
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('./assets/fonts/helvetica-neu.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: 'La Belle Aurore';
+    src: url('./assets/fonts/LaBelleAurore.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Coolvetica';
+    src: url('./assets/fonts/CoolveticaRg-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'DMSerifDislay';
+    src: url('./assets/fonts/DMSerifDisplay-Regular.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: 'Playfair';
+    src: url('./assets/fonts/Playfair-VariableFont_opsz\,wdth\,wght.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: 'Marcellus';
+    src: url('./assets/fonts/Marcellus-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('./assets/fonts/BebasNeue-Regular.ttf') format('truetype');
+}
+
+input,
+textarea {
+    font-family: 'Helvetica Neue';
+    font-family: 'DMSerifDislay';
+    font-family: 'Marcellus';
+}
+
+.flat-button {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    font-family: 'BebasNeue';
+    text-decoration: none;
+    padding: 10px 18px;
+    border: 2.5px solid #c4d3e0;
+    animation: fadeIn 1s 1.8s backwards;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #c4d3e0;
+
+    &:hover {
+        background: darken(#c4d3e0, 10%);
+        color: #ffffff;
+    }
+
+    .whatsicon {
+        width: 30px;
+        height: auto;
+    }
+}

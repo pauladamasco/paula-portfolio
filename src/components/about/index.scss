@@ -1,0 +1,61 @@
+// Ajustes exclusivos do about que não existem no layout
+.about-page {
+    align-items: center; // layout tem flex-start, aqui sobrescreve
+    gap: 60px;           // layout tem 40px, aqui sobrescreve
+
+    .text-zone {
+        flex: 1;
+        max-width: 700px;
+        text-align: left;
+    }
+
+    h1 {
+        margin: 0 0 32px 0; 
+        line-height: normal; 
+    }
+
+    p {
+        line-height: 1.7;   
+        margin-top: 24px;  
+    }
+}
+
+// Face container é exclusivo do about — layout não conhece isso
+.face-container {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 700px;
+        height: auto;
+        position: relative;
+        border-radius: 50px;
+    }
+}
+
+// Apenas o que é exclusivo do about nas media queries
+@media (max-width: 1024px) {
+    .face-container img { width: 380px; }
+}
+
+@media (max-width: 768px) {
+    .about-page .text-zone {
+        max-width: unset;
+    }
+
+    .face-container img {
+        width: 100%;
+        max-width: 700px;
+        border-radius: 24px;
+        margin-top: 75px
+    }
+}
+
+@media (max-width: 480px) {
+    .face-container img {
+        max-width: 260px;
+        border-radius: 16px;
+    }
+}

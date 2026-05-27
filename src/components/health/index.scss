@@ -1,0 +1,292 @@
+.health-page {
+    background-image: url('../../assets/images/health-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 0;
+    }
+}
+
+.health-wrapper {
+    display: flex;
+    align-items: stretch;
+    gap: 32px;
+    padding: 60px 48px;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.health-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 70%;
+}
+
+.health-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(to right, rgba(255, 120, 30, 0.55), rgba(255, 80, 0, 0.10));
+    border: 0.5px solid rgba(255, 140, 60, 0.35);
+    border-radius: 12px;
+    padding: 20px 24px;
+    backdrop-filter: blur(6px);
+    animation: fadeInUp 0.5s ease both;
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(16px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    &__image {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+        border: 2.5px solid rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow:
+            0 0 0 4px rgba(255, 255, 255, 0.08),
+            0 0 0 7px rgba(255, 255, 255, 0.04);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    &__image-placeholder {
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+    }
+
+    &__text {
+        flex: 1;
+
+        h3 {
+            font-family: 'Marcellus';
+            font-size: 25px;
+            font-weight: 500;
+            color: #000000;
+            margin-bottom: 6px;
+        }
+
+        p {
+            font-family: 'Marcellus';
+            font-size: 18px;
+            color: rgba(0, 0, 0, 0.65);
+            line-height: 1.65;
+        }
+    }
+
+    // ── Modificadores de tamanho de imagem ──
+    &--img-xs {
+        .health-item__image {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    &--img-sm {
+        .health-item__image {
+            width: 80px;
+            height: 80px;
+        }
+    }
+
+    &--img-md {
+        .health-item__image {
+            width: 110px;  // padrão
+            height: 110px;
+        }
+    }
+
+    &--img-lg {
+        .health-item__image {
+            width: 140px;
+            height: 140px;
+        }
+    }
+
+    &--img-xl {
+        .health-item__image {
+            width: 180px;
+            height: 180px;
+        }
+    }
+}
+
+.health-sidebar-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+
+    span {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+        font-family: 'Marcellus';
+        font-size: 56px;
+        font-weight: 700;
+        letter-spacing: 8px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        user-select: none;
+
+        .text-animate,
+        .text-animate-hover {
+            display: inline;
+            color: #ffffff;
+        }
+
+        .text-animate-hover {
+            &:hover {
+                color: rgb(196, 211, 224);
+                animation: pulse 1s;
+            }
+        }
+    }
+}
+
+// ── Tablet ──
+@media (max-width: 1024px) {
+    .health-wrapper {
+        padding: 48px 32px;
+        gap: 24px;
+    }
+
+    .health-list {
+        max-width: 75%;
+    }
+
+    .health-sidebar-title span {
+        font-size: 42px;
+        letter-spacing: 6px;
+    }
+
+    .health-item {
+        &__image {
+            width: 90px;
+            height: 90px;
+        }
+
+        &__text {
+            h3 { font-size: 21px; }
+            p  { font-size: 16px; }
+        }
+
+        // Modificadores escalados para tablet
+        &--img-xs .health-item__image { width: 45px;  height: 45px;  }
+        &--img-sm .health-item__image { width: 65px;  height: 65px;  }
+        &--img-md .health-item__image { width: 90px;  height: 90px;  }
+        &--img-lg .health-item__image { width: 115px; height: 115px; }
+        &--img-xl .health-item__image { width: 100px; height: 100px; }
+    }
+}
+
+// ── Mobile ──
+@media (max-width: 768px) {
+    .health-wrapper {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 28px;
+        align-items: center;
+        min-height: auto;
+    }
+
+    .health-sidebar-title {
+        width: 100%;
+        justify-content: flex-start;
+
+        span {
+            writing-mode: horizontal-tb;
+            transform: none;
+            font-size: 32px;
+            letter-spacing: 4px;
+            white-space: normal;
+        }
+    }
+
+    .health-list {
+        max-width: 100%;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .health-item {
+        padding: 14px 16px;
+        gap: 14px;
+
+        &__image {
+            width: 70px;
+            height: 70px;
+        }
+
+        &__text {
+            h3 { font-size: 18px; }
+            p  { font-size: 14px; }
+        }
+
+        // Modificadores escalados para mobile
+        &--img-xs .health-item__image { width: 38px; height: 38px; }
+        &--img-sm .health-item__image { width: 52px; height: 52px; }
+        &--img-md .health-item__image { width: 70px; height: 70px; }
+        &--img-lg .health-item__image { width: 88px; height: 88px; }
+        &--img-xl .health-item__image { width: 110px; height: 110px; }
+    }
+}
+
+// ── Mobile pequeno ──
+@media (max-width: 480px) {
+    .health-wrapper {
+        padding: 28px 14px;
+    }
+
+    .health-sidebar-title span {
+        font-size: 26px;
+        letter-spacing: 2px;
+    }
+
+    .health-item {
+        &__image {
+            width: 56px;
+            height: 56px;
+        }
+
+        &__text {
+            h3 { font-size: 16px; }
+            p  { font-size: 13px; }
+        }
+
+        // Modificadores escalados para mobile pequeno
+        &--img-xs .health-item__image { width: 30px; height: 30px; }
+        &--img-sm .health-item__image { width: 42px; height: 42px; }
+        &--img-md .health-item__image { width: 56px; height: 56px; }
+        &--img-lg .health-item__image { width: 70px; height: 70px; }
+        &--img-xl .health-item__image { width: 90px; height: 90px; }
+    }
+}
